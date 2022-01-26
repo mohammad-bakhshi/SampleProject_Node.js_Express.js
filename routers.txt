@@ -1,0 +1,13 @@
+blogger
+
+singup page=/signup method=get
+login page=/ method=get
+profile page=/:id method=get
+
+read blogger=/read method=post
+create blogger=/ method=post
+update blogger=/ method=put
+delete blogger=/ method=delete
+
+
+1-signup page 

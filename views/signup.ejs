@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Create Account</h2>
+      <form class="form" id="form">
+        <div class="form-control">
+          <label for="fname">Firstname</label>
+          <input type="text" id="fname"/>
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="lname">Lastname</label>
+          <input type="text" id="lname" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="lname">Cell phone</label>
+          <input type="text" id="cellphone" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="M" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="F" />
+        <label for="female">Female</label><br><br><br>
+        <div class="form-control">
+          <label for="username">Username</label>
+          <input type="text" id="username" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+        <button>Sign up</button>
+      </form>
+      <p>Have an account? <a href="/">Login</a></p>
+    </div>
+  </div>
+  <script src="/javascripts/signup.js"></script>
+</body>
+
+</html>
