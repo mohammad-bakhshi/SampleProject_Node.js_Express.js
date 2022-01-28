@@ -38,7 +38,8 @@ const check_blogger = async (req, res) => {
             }
             else {
                 if (blogger.password === req.body.password) {
-                    res.status(200).json({ result: true, bloggerId: blogger._id });
+                    req.session.blogger = blogger;
+                    res.status(200).json({result:true})
                 }
                 else {
                     res.status(422).json({ result: false, message: "password was incorrect" });
@@ -54,12 +55,16 @@ const check_blogger = async (req, res) => {
 }
 
 const read_blogger = async (req, res) => {
-    const bloggerId = req.params.id;
-    try {
-        const blogger = await Blogger.findById(bloggerId);
-        res.status(200).render("profile", blogger);
-    } catch (error) {
-        console.log(error);
+    if(req.session.blogger && req.cookies.blogger_seed){
+        try {
+            const blogger = await Blogger.findById(req.session.blogger._id);
+            res.status(200).render("profile", blogger);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    else{
+        res.status(422).redirect('/');
     }
 }
 

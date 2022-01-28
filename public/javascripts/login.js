@@ -15,7 +15,7 @@ form.addEventListener("submit", (e) => {
         }).then(response => response.json())
             .then((data) => {
                 if (data.result === true) {
-                    window.location.href = `/${data.bloggerId}`;
+                    window.location.href = '/profile';
                 }
                 else {
                     $("div.failure").html(data.message);

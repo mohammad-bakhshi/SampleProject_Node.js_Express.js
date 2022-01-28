@@ -15,7 +15,7 @@ router.post('/', bloggerController.create_blogger);
 router.post('/check', bloggerController.check_blogger);
 
 //read blogger
-router.get('/:id',bloggerController.read_blogger);
+router.get('/profile',bloggerController.read_blogger);
 
 //update blogger
 router.put('/:id',bloggerController.update_blogger);

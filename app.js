@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session=require('express-session');
 
 var dbConnection = require('./connection');
 var bloggerRouter = require('./routes/bloggerRouter');
@@ -18,6 +19,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: "12345",
+  key: "blogger_seed",
+  saveUninitialized: false,
+  resave: false,
+  cookie: {
+    maxAge: 300000
+  }
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/favicon.ico', (req, res) => res.status(204));
