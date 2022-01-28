@@ -10,15 +10,21 @@ form.addEventListener("submit", (e) => {
     if (result.message === 'pass') {
         fetch('/check', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(result)
-        }).then(response=>response.json())
-        .then((data)=>{
-            window.location.href=`/${data._id}`;
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+        }).then(response => response.json())
+            .then((data) => {
+                if (data.result === true) {
+                    window.location.href = `/${data.bloggerId}`;
+                }
+                else {
+                    $("div.failure").html(data.message);
+                    $("div.failure").fadeIn(300).delay(1500).fadeOut(400);
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 });
 

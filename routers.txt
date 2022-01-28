@@ -1,13 +1,12 @@
-blogger
-
-singup page=/signup method=get
-login page=/ method=get
-profile page=/:id method=get
-
-read blogger=/read method=post
-create blogger=/ method=post
-update blogger=/ method=put
-delete blogger=/ method=delete
+render login page=> route=/     method=get  status=done
+render signup page=> route=/signup method=get status=done
+create blogger=>route=/ method=post status=done
+check blogger=>route=/check method=post status=done
+render profile page=>route=/:id method=get status=done
+delete blogger=>route=/ method=delete status=done
+update blogger=>route=/ method=put status=waiting
+session status=waiting
 
 
-1-signup page 
+1-insert username and password 2-find document from database using username 3-if there was a document check password 
+4-if password was ok go to profile

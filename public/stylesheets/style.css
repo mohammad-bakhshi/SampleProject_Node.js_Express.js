@@ -264,6 +264,21 @@ body {
   text-decoration: none;
 }
 
+.alert-box {
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;  
+}
+
+
+.failure {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  display: none;
+}
+
 p{
   text-align: center;
 }

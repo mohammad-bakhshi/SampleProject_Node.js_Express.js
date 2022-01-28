@@ -16,12 +16,18 @@ form.addEventListener("submit", (e) => {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(result)
-        }).then(function (response) {
-            window.location.replace('/');
+        }).then(response => response.json())
+        .then((data) => {
+            if (data.result === true) {
+                window.location.replace('/');
+            }
+            else {
+                $("div.failure").html(data.message);
+                $("div.failure").fadeIn(300).delay(1500).fadeOut(400);
+            }
         }).catch(function (error) {
             console.log(error);
         })
-
     }
 });
 
@@ -38,8 +44,6 @@ function checkInputs() {
         genderValue = gender[0].value;
     } else if (gender[1].checked) {
         genderValue = gender[1].value;
-    } else {
-        genderValue = "empty";
     }
 
 
