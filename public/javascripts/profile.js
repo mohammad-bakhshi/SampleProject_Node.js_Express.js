@@ -1,5 +1,5 @@
 function deleteBlogger(id) {
-    fetch(`/${id}`, {
+    fetch('/profile', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
     })
@@ -30,14 +30,14 @@ form.addEventListener("submit", (e) => {
     };
     const id = window.location.pathname.slice(1)
     //if (result.message === 'pass') {
-        fetch(`/${id}`, {
+        fetch('/profile', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(result)
         }).then(response => response.json())
             .then((data) => {
                 if (data.result === true) {
-                    window.location.replace(`/${id}`);
+                    window.location.replace('/profile');
                 }
                 else {
                     $("div.failure").html(data.message);

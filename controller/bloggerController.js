@@ -28,6 +28,7 @@ const create_blogger = async (req, res) => {
         res.status(400).json({ result: false, message: result.message });
     }
 }
+
 const check_blogger = async (req, res) => {
     const result = bloggerValidation.loginValidator(req.body);
     if (result.status === true) {
@@ -42,7 +43,7 @@ const check_blogger = async (req, res) => {
                     res.status(200).json({result:true})
                 }
                 else {
-                    res.status(422).json({ result: false, message: "password was incorrect" });
+                    res.status(422).json({ result: false, message: "blogger not found" });
                 }
             }
         } catch (error) {
@@ -70,7 +71,7 @@ const read_blogger = async (req, res) => {
 
 
 const update_blogger = async (req, res) => {
-    const bloggerId = req.params.id;
+    const bloggerId = req.session.blogger._id;
     const updates = req.body;
     const result = bloggerValidation.updateValidator(updates);
     if (result.status === true) {
@@ -87,7 +88,7 @@ const update_blogger = async (req, res) => {
 }
 
 const delete_blogger = async (req, res) => {
-    const bloggerId = req.params.id;
+    const bloggerId = req.session.blogger._id;
     try {
         await Blogger.findByIdAndDelete(bloggerId);
         res.status(200).json({ message: 'Blogger was deleted successfully' });

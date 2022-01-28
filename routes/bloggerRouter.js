@@ -18,10 +18,10 @@ router.post('/check', bloggerController.check_blogger);
 router.get('/profile',bloggerController.read_blogger);
 
 //update blogger
-router.put('/:id',bloggerController.update_blogger);
+router.put('/profile',bloggerController.update_blogger);
 
 //delete blogger
-router.delete('/:id',bloggerController.delete_blogger);
+router.delete('/profile',bloggerController.delete_blogger);
 
 
 
