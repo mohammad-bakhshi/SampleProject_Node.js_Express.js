@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <%-include('./partials/head.ejs') %>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -47,7 +44,7 @@
               <div class="card-block text-center text-white">
                 <i class="fas fa-user-tie fa-3x mt-5">
                   <h5 class="font-weight-bold mt-4">
-                    <%= firstname %> <%= lastname %>
+                    <%= blogger.firstname %> <%= blogger.lastname %>
                   </h5>
                   <button
                     id="edit"
@@ -59,10 +56,11 @@
                   </button>
                   <button
                     class="btn btn-danger btn-sm mt-2 mb-2"
-                    onclick="deleteBlogger('<%=_id%>')"
+                    onclick="deleteBlogger('<%=blogger._id%>')"
                   >
                     <i class="far fa-window-close fa-2x p-0"></i>
                   </button>
+                  <button class="btn btn-danger btn-sm mt-2 mb-2" onclick="logoutBlogger()">logout</button>
                 </i>
               </div>
             </div>
@@ -72,19 +70,19 @@
               <div class="row">
                 <div class="col-sm-6">
                   <p class="font-weight-bold">Firstname:</p>
-                  <h6 class="text-muted"><%= firstname %></h6>
+                  <h6 class="text-muted"><%= blogger.firstname %></h6>
                 </div>
                 <div class="col-sm-6">
                   <p class="font-weight-bold">Lastname:</p>
-                  <h6 class="text-muted"><%= lastname %></h6>
+                  <h6 class="text-muted"><%= blogger.lastname %></h6>
                 </div>
                 <div class="col-sm-6">
                   <p class="font-weight-bold">Username:</p>
-                  <h6 class="text-muted"><%= username %></h6>
+                  <h6 class="text-muted"><%= blogger.username %></h6>
                 </div>
                 <div class="col-sm-6">
                   <p class="font-weight-bold">Cell phone:</p>
-                  <h6 class="text-muted"><%= cellphone %></h6>
+                  <h6 class="text-muted"><%= blogger.cellphone %></h6>
                 </div>
 
 
@@ -102,27 +100,27 @@
                         <div class="mb-3">
                           <label for="fname" class="col-form-label">Firstname:</label>
                           <input type="text" class="form-control" id="fname" name="fname"
-                            value="<%= firstname %>" />
+                            value="<%= blogger.firstname %>" />
                         </div>
                         <div class="mb-3">
                           <label for="lname" class="col-form-label">Lastname:</label>
                           <input type="text" class="form-control" id="lname" name="lname"
-                            value="<%= lastname %>"/>
+                            value="<%= blogger.lastname %>"/>
                         </div>
                         <div class="mb-3">
                           <label for="username" class="col-form-label">Username:</label>
                           <input type="text" class="form-control" id="username" name="username"
-                            value="<%= username %>" />
+                            value="<%= blogger.username %>" />
                         </div>
                         <div class="mb-3">
                           <label for="password" class="col-form-label">Password:</label>
                           <input type="text" class="form-control" id="password" name="password"
-                            value="<%= password %>" />
+                            value="<%= blogger.password %>" />
                         </div>
                         <div class="mb-3">
                           <label for="cellphone" class="col-form-label">Cell phone:</label>
                           <input type="text" class="form-control" id="cellphone" name="cellphone"
-                            value="<%= cellphone %>" />
+                            value="<%= blogger.cellphone %>" />
                         </div>
                         <button type="submit" class="btn btn-primary" id="update">
                           Update

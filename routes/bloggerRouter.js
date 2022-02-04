@@ -15,18 +15,15 @@ router.post('/', bloggerController.create_blogger);
 router.post('/check', bloggerController.check_blogger);
 
 //read blogger
-router.get('/profile',bloggerController.read_blogger);
+router.get('/profile', bloggerController.read_blogger);
 
 //update blogger
-router.put('/profile',bloggerController.update_blogger);
+router.put('/profile', bloggerController.update_blogger);
 
 //delete blogger
-router.delete('/profile',bloggerController.delete_blogger);
+router.delete('/profile', bloggerController.delete_blogger);
 
-
-
-
-
-
+//logout blogger
+router.get('/logout', bloggerController.logout_blogger);
 
 module.exports = router;

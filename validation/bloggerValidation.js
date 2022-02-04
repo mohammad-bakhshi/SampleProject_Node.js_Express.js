@@ -91,12 +91,12 @@ const updateValidator = (input) => {
             result.status = false;
         }
     }
-    if (input.password) {
-        if (!isPassword(input.password)) {
-            result.message.push("password is not valid.");
-            result.status = false;
-        }
-    }
+    // if (input.password) {
+    //     if (!isPassword(input.password)) {
+    //         result.message.push("password is not valid.");
+    //         result.status = false;
+    //     }
+    // }
     return result;
 }
 

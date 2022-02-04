@@ -8,6 +8,16 @@ function deleteBlogger(id) {
             console.log(error);
         })
 }
+function logoutBlogger(){
+    fetch('/logout', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    })
+        .then(() => window.location.href = '/')
+        .catch(function (error) {
+            console.log(error);
+        })
+}
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const form = document.getElementById("form");

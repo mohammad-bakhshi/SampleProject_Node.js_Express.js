@@ -22,14 +22,7 @@ const BloggerSchema = new Schema({
     },
     password: {
         type: String,
-        required: [true, "password is required."],
-        unique:false,
-        validate: {
-            validator: function(v) {
-              return /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d@$!%*?&]{8,}$/.test(v);
-            },
-            message: props => `${props.value} is not a valid password!`
-          }
+        required: [true, "password is required."]
     },
     gender: {
         type: String,
@@ -45,6 +38,12 @@ const BloggerSchema = new Schema({
         //     },
         //     message: props => `${props.value} is not a valid cellphone!`
         //   }
+    },
+    role:{
+        type: String,
+        enum: ["blogger", "admin"],
+        required: true,
+        default: "blogger",
     }
 }, { timestamps: true });
 const Blogger = mongoose.model("Blogger", BloggerSchema);
